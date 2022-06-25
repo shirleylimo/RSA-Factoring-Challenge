@@ -1,0 +1,17 @@
+#! /usr/bin/python3
+import sys
+
+def factors():
+    """traverse through a file and find factors for each number"""
+    try:
+        with open(sys.argv[1]) as f:
+            for line in f:
+                line = int(line)
+                for i in range (2,  line + 1):
+                    if line%i ==0:
+                        q = i
+                        print(f"{line}={line//q}*{q}")
+                        break
+    except(IndexError):
+        print("No argurments passed")
+factors()
